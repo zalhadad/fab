@@ -98,5 +98,5 @@ app.delete('/brands/:id', function (req, res) {
 })
 
 
-app.listen(process.env.PORT | 3000, function () {
+app.listen(process.env.PORT || 3000, function () {
 })
