@@ -2,13 +2,19 @@ const express = require('express')
 const app = express()
 const parser = require('js-xlsx')
 const Datastore = require('nedb');
-const brands = new Datastore({ filename: 'db/brands.db', autoload: true });
-const providers = new Datastore({ filename: 'db/providers.db', autoload: true });
-const products = new Datastore({ filename: 'db/products.db', autoload: true });
 require('./polyfills')
 const multer = require('multer')
 const upload = multer()
 const bodyParser = require('body-parser')
+
+
+
+const brands = new Datastore({ filename: 'db/brands.db', autoload: true });
+const providers = new Datastore({ filename: 'db/providers.db', autoload: true });
+
+
+const productsApi = require('./api/products');
+
 
 app.use(bodyParser.json())
 app.use(function (req, res, next) {
@@ -97,6 +103,8 @@ app.delete('/brands/:id', function (req, res) {
   }
 })
 
+
+app.use('/products', productsApi);
 
 app.listen(process.env.PORT || 3000, function () {
 })
