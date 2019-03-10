@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const Datastore = require('nedb');
 
-const products = new Datastore({ filename: '../db/products.db', autoload: true });
+const products = new Datastore({ filename: path.join(__dirname, '..', 'db', 'products.db'), autoload: true });
 
 const r = new Router();
 module.exports = r;
