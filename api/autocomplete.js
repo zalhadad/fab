@@ -74,7 +74,7 @@ const findClosest = (code) => {
   const ratings = stringSimilarity
     .findBestMatch(code, codes)
     .ratings
-    .filter(rate => rate.rating > 0.8);
+    .filter(rate => rate.rating > 0.7);
   ratings.sort((a, b) => a.rating - b.rating);
   return ratings.slice(0, 4).map(e => codesObj[e.target]).map(mapFamilies);
 };
