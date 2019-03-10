@@ -11,7 +11,7 @@ const results = [];
 let codesObj;
 let codes;
 
-const families = new Datastore({ filename: 'db/families.db', autoload: true });
+const families = new Datastore({ filename: path.join(__dirname, '..', 'db', 'families.db'), autoload: true });
 
 fs.createReadStream(path.join(__dirname, '..', 'files', 'clean.csv')).pipe(csv()).on('data', e => results.push(e)).on('end', () => {
   codesObj = results.reduce((acc, cur) => {
