@@ -12,12 +12,18 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "csv-parser": "^2.1.0",
     "express": "^4.16.4",
     "js-xlsx": "^0.8.22",
     "multer": "^1.4.1",
-    "nedb": "^1.8.0"
+    "nedb": "^1.8.0",
+    "request": "^2.88.0",
+    "string-similarity": "^3.0.0"
   },
   "devDependencies": {
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
     "nodemon": "^1.18.9"
   }
 }

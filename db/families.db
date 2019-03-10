@@ -1,0 +1,22 @@
+{"name":"Drogueries ","id":"20","subFamilies":[{"name":"Cosmetiques","id":"86"},{"name":"Défrisants ","id":"87"},{"name":"Dentifrices","id":"85"},{"name":"Hennés ","id":"84"},{"name":"Savons et shampoing ","id":"88"}],"_id":"23faMJjgG6aqfWXi"}
+{"name":"Petit Déjeuner ","id":"7","subFamilies":[{"name":"Céréales ","id":"14"},{"name":"Confitures","id":"13"},{"name":"Miels","id":"15"}],"_id":"2NdoQ5Wg6z8EPAB5"}
+{"name":"Fruits et légumes ","id":"15","subFamilies":[{"name":"Fruits","id":"64"},{"name":"Herbes","id":"66"},{"name":"Légumes ","id":"65"}],"_id":"4PGO0eAP3j0wfx1P"}
+{"name":"Sauces","id":"6","subFamilies":[{"name":"Asiatique ","id":"12"},{"name":"Piments","id":"11"},{"name":"Tomates","id":"10"}],"_id":"5ObU5pHQwJfH0MeB"}
+{"name":"Olives","id":"21","subFamilies":[{"name":"Noires","id":"90"},{"name":"Olives fraiches","id":"89"},{"name":"Variantes de légumes ","id":"92"},{"name":"Vertes","id":"91"}],"_id":"7w6npD2mBpesQk9n"}
+{"name":"Boissons","id":"18","subFamilies":[{"name":"Eaux","id":"78"},{"name":"Jus de fruits","id":"77"},{"name":"Sirops","id":"79"},{"name":"Soda","id":"76"},{"name":"Soda en canettes","id":"75"}],"_id":"8GI1wzak3bStabvs"}
+{"name":"Apéritif ","id":"22","subFamilies":[{"name":"Chips","id":"95"},{"name":"Gateaux","id":"97"},{"name":"Graines","id":"96"}],"_id":"CpMMIdouSCgRMGFa"}
+{"name":"Charcuterie","id":"13","subFamilies":[{"name":"Pâté ","id":"50"},{"name":"Porc","id":"47"},{"name":"Salami","id":"48"},{"name":"Saucisses","id":"49"}],"_id":"FtWDD8U6enEEAOT8"}
+{"name":"Pâtes et riz","id":"9","subFamilies":[{"name":"Boulghour","id":"26"},{"name":"Couscous","id":"34"},{"name":"Nouilles","id":"23"},{"name":"Pâtes ","id":"21"},{"name":"Préparations à base de riz","id":"24"},{"name":"Riz","id":"22"},{"name":"Semoule","id":"25"}],"_id":"GITmEvsoQUzlnVsV"}
+{"name":"Conserves","id":"5","subFamilies":[{"name":"Feuilles de vigne ","id":"5"},{"name":"Fèves ","id":"3"},{"name":"Gombos","id":"6"},{"name":"Haricots","id":"7"},{"name":"Hommos","id":"4"},{"name":"Purée de piments","id":"2"},{"name":"Sardines et thon","id":"8"},{"name":"Viandes","id":"9"}],"_id":"KkW6Op7FcI6SmnKJ"}
+{"name":"Thés et café ","id":"12","subFamilies":[{"name":"Café ","id":"43"},{"name":"Infusions ","id":"46"},{"name":"Thés ","id":"44"},{"name":"Tisane ","id":"45"}],"_id":"MjuoUPgyICXhuJyI"}
+{"name":"Crèmerie ","id":"14","subFamilies":[{"name":"Ayrane","id":"57"},{"name":"Beurre et crèmes ","id":"56"},{"name":"Fromages","id":"54"},{"name":"Laits","id":"53"},{"name":"Lben","id":"58"},{"name":"Œufs ","id":"52"},{"name":"Raib","id":"59"},{"name":"Yaourts","id":"55"}],"_id":"UN1lTGjqYQrEfnHV"}
+{"name":"Boucherie","id":"25","subFamilies":[],"_id":"UpUAEZEJOlW3BzqO"}
+{"name":"Alcool","id":"16","subFamilies":[{"name":"Bières ","id":"62"},{"name":"Spiritueux","id":"61"},{"name":"Vins","id":"60"}],"_id":"VvoROpu8MQ4jzsEk"}
+{"name":"Légumes et fruits secs","id":"10","subFamilies":[{"name":"Amandes","id":"36"},{"name":"Dattes","id":"51"},{"name":"Feves sèches ","id":"33"},{"name":"Haricots secs","id":"29"},{"name":"Lentilles rouges","id":"30"},{"name":"Lentilles vertes","id":"31"},{"name":"Pois chiche","id":"32"}],"_id":"W69LlAndUZVaralu"}
+{"name":"Non affectée","id":"1","subFamilies":[],"_id":"YWdrqRIZF7hAGTdA"}
+{"name":"Bazar","id":"24","subFamilies":[],"_id":"aBZdioFW4sVSQg5X"}
+{"name":"Épicerie sucrée ","id":"8","subFamilies":[{"name":"Bonbons et confiseries","id":"16"},{"name":"Chocolats","id":"17"},{"name":"Gâteaux sucrés","id":"19"},{"name":"Loukoum","id":"20"}],"_id":"duykWTgakx4CAvSB"}
+{"name":"Surgelés","id":"17","subFamilies":[{"name":"Légumes et fruits","id":"67"},{"name":"Patisserie","id":"72"},{"name":"Pizza","id":"74"},{"name":"Poissons","id":"70"},{"name":"Traiteur","id":"73"},{"name":"Viandes diverses","id":"69"},{"name":"Volaille ","id":"71"}],"_id":"gF32qo88lx80gVL7"}
+{"name":"Épicerie salée ","id":"23","subFamilies":[{"name":"Biscuits","id":"18"},{"name":"Farines","id":"94"},{"name":"Sucres","id":"93"}],"_id":"twj27AwB5hIYrL1S"}
+{"name":"Pains et viennoiserie ","id":"19","subFamilies":[{"name":"Pains","id":"81"},{"name":"Pains frais","id":"80"},{"name":"Tortillas","id":"83"},{"name":"Viennoiseries","id":"82"}],"_id":"uy85L2kHwVAowoxT"}
+{"name":"Huiles et condiments","id":"11","subFamilies":[{"name":"Condiments","id":"41"},{"name":"Épices ","id":"40"},{"name":"Ghees","id":"39"},{"name":"Huile d'olives ","id":"37"},{"name":"Huile de tournesol","id":"38"},{"name":"Vinaigre ","id":"42"}],"_id":"vRsKBdt12tRIz2Fb"}
