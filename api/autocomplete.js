@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const csv = require('csv-parser');
 const fs = require('fs');
-const Datastore = require('nedb');
+const {families} = require('../modules/db');
 
 const path = require('path');
 const stringSimilarity = require('string-similarity');
@@ -11,7 +11,6 @@ const results = [];
 let codesObj;
 let codes;
 
-const families = new Datastore({ filename: path.join(__dirname, '..', 'db', 'families.db'), autoload: true });
 
 fs.createReadStream(path.join(__dirname, '..', 'files', 'clean.csv')).pipe(csv()).on('data', e => results.push(e)).on('end', () => {
   codesObj = results.reduce((acc, cur) => {

@@ -2,15 +2,11 @@ const express = require('express');
 
 const app = express();
 // const parser = require('js-xlsx');
-const Datastore = require('nedb');
 require('./polyfills');
 const bodyParser = require('body-parser');
 
 
-const brands = new Datastore({ filename: 'db/brands.db', autoload: true });
-const families = new Datastore({ filename: 'db/families.db', autoload: true });
-// const providers = new Datastore({ filename: 'db/providers.db', autoload: true });
-
+const { families, brands } = require('./modules/db')
 
 const productsApi = require('./api/products');
 const usersApi = require('./api/users');
