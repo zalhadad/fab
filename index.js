@@ -21,7 +21,7 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
-  if (req.path.startsWith('/users')) {
+  if (req.method === "OPTIONS" || req.path.startsWith('/users')) {
     return next();
   }
   if (req.headers && req.headers.authorization) {
