@@ -45,11 +45,11 @@ r.get('/', (req, res) => {
     .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase())));
 });
 r.post('/', (req, res) => {
-  const { name } = req.body;
+  const { name, password } = req.body;
   if (name) {
     users.insert({
       name: name.trim().toLowerCase(),
-      password: makeid(),
+      password: password || makeid(),
       role: req.body.role || 'user',
     }, (e, t) => {
       if (e) {

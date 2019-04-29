@@ -1,10 +1,10 @@
 const { Router } = require('express');
 const csv = require('csv-parser');
 const fs = require('fs');
-const {families} = require('../modules/db');
 
 const path = require('path');
 const stringSimilarity = require('string-similarity');
+const { families, brands } = require('../modules/db');
 const image = require('../modules/image');
 
 const results = [];
@@ -67,6 +67,18 @@ const mapFamilies = (element) => {
       }
     }
   }
+  if (element.brand) {
+    const brandsList = brands.getAllData();
+    const match = stringSimilarity
+      .findBestMatch(element.brand.norm(), brandsList.map(f => f.name.norm()));
+    if (match.bestMatch.rating > 0.7) {
+      const brand = brandsList[match.bestMatchIndex];
+      element.brand = { id: brand.id, name: brand.name };
+    }
+  }
+  element.name = element.name || element.generic_name;
+  delete element.generic_name;
+  delete element.cat;
   return element;
 };
 
@@ -90,13 +102,16 @@ r.get('/product', (req, res) => {
           image: img,
         })).catch(e => res.status(400).send(e.message));
       } else {
-        res.send(mapFamilies(element));
+        res.send({ product: mapFamilies(element) });
       }
     } else {
       const closest = findClosest(code);
       Promise.all(closest.map(c => (c.image ? image.getImage(c.image) : Promise.resolve())))
         .then((result) => {
-          res.send({ closest: result.map((img, i) => ({ ...closest[i], image: img })) });
+          res.send({
+            product: null,
+            closest: result.map((img, i) => ({ ...closest[i], image: img })),
+          });
         });
     }
   } else {

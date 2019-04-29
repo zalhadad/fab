@@ -6,7 +6,7 @@ require('./polyfills');
 const bodyParser = require('body-parser');
 
 
-const { families, brands, users } = require('./modules/db')
+const { families, brands, users } = require('./modules/db');
 
 const productsApi = require('./api/products');
 const usersApi = require('./api/users');
@@ -21,31 +21,31 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
-  if (req.method === "OPTIONS" || req.path.startsWith('/users')) {
+  if (req.method === 'OPTIONS' || req.path.startsWith('/users')) {
     return next();
   }
   if (req.headers && req.headers.authorization) {
-    const tokens = Buffer.from(req.headers.authorization.replace("Basic ", ""), "base64").toString('ascii').split(':');
+    const tokens = Buffer.from(req.headers.authorization.replace('Basic ', ''), 'base64').toString('ascii').split(':');
     if (tokens.length === 2) {
       const opt = {
         name: tokens[0],
-        password: tokens[1]
-      }
+        password: tokens[1],
+      };
       users.findOne(opt, (err, u) => {
         if (u) {
+          // eslint-disable-next-line no-underscore-dangle
+          req.user = u._id;
           return next();
-        } else {
-          res.status(401).send();
         }
+        return res.status(401).send();
       });
-    }
-    else {
+    } else {
       res.status(401).send();
     }
   } else {
     res.status(401).send();
   }
-
+  return false;
 });
 
 // var sheet2arr = function (sheet) {

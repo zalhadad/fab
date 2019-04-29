@@ -1,13 +1,9 @@
 const { Router } = require('express');
 const { products, inventory } = require('../modules/db');
-const { saveImage } = require('../modules/image');
+const { saveImage, getLocalImage } = require('../modules/image');
 
 const r = new Router();
 module.exports = r;
-
-r.get('/', (req, res) => {
-  res.send(products.getAllData());
-});
 
 r.get('/alerts', (req, res) => {
   products.find({ $or: [{}] }, (err, docs) => {
@@ -19,21 +15,40 @@ r.get('/alerts', (req, res) => {
   });
 });
 
+
+r.get('/', (req, res) => {
+  res.send(products.getAllData());
+});
+
+
+r.get(':code', (req, res) => {
+  const { code } = req.params;
+
+  products.findOne({ code }, (err, doc) => {
+    if (err) {
+      res.status(400).send(err.message);
+    } else {
+      doc.image = getLocalImage(doc.code);
+      res.send(doc);
+    }
+  });
+});
+
 r.post('/', (req, res) => {
   const { image } = req.body;
   const product = req.body;
-  product.user = product.user.id;
+  product.user = req.user;
   delete product.image;
   if (product.code) {
     if (image) {
       saveImage(product.code, image);
     }
     products.insert(product);
-    products.findOne({ code: product.code }, (err, doc) => {
+    products.findOne({ code: product.code }, (err) => {
       if (err) {
         res.status(400).send(err.message);
       } else {
-        res.send(doc);
+        res.send('Produit Ajouté');
       }
     });
   } else {
@@ -42,16 +57,16 @@ r.post('/', (req, res) => {
 });
 
 r.post('/:code/invotory', (req, res) => {
-  const { code } = req.query;
-  const { user, count, force } = req.body;
+  const { code } = req.params;
+  const { count, force } = req.body;
   if (count > 0) {
-    inventory.findOne({ code, user: user.id }, (err, doc) => {
+    inventory.findOne({ code, user: req.user }, (err, doc) => {
       if (err) {
         res.status(400).send(err.message);
       } else if (doc) {
         if (force) {
           inventory.insert({
-            user: user.id, count, code, timestamp: new Date().getTime(),
+            user: req.user, count, code, timestamp: new Date().getTime(),
           });
           inventory.find({ code }, (err2, docs) => {
             if (err2) {
@@ -65,7 +80,7 @@ r.post('/:code/invotory', (req, res) => {
         }
       } else {
         inventory.insert({
-          user: user.id, count, code, timestamp: new Date().getTime(),
+          user: req.user, count, code, timestamp: new Date().getTime(),
         });
         inventory.find({ code }, (err2, docs) => {
           if (err2) {
